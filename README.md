@@ -3,7 +3,7 @@ Just a simple crud API for games.
 
 ## How to use:
 
-Execute the *restapi.exe*
+Run go build and execute the restapi file
 
 After you can visit:
 ```

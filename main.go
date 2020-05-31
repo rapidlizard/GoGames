@@ -28,14 +28,14 @@ func getGames() []Game {
 
 	db, err := sql.Open("mysql", "root:kane@(127.0.0.1:3306)/gogames")
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
 	defer db.Close()
 	fmt.Println("success!!")
 
 	results, err := db.Query("SELECT * FROM games")
 	if err != nil {
-		panic(err)
+		panic(err.Error())
 	}
 	for results.Next() {
 		var game Game
