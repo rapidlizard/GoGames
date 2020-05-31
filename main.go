@@ -23,9 +23,8 @@ type Genre struct {
 	Name string `json:"name"`
 }
 
-var games []Game
-
 func getGames() []Game {
+	var games []Game
 
 	db, err := sql.Open("mysql", "root:kane@(127.0.0.1:3306)/gogames")
 	if err != nil {
@@ -50,8 +49,7 @@ func getGames() []Game {
 
 func returnGames(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	games = getGames()
-	json.NewEncoder(w).Encode(games)
+	json.NewEncoder(w).Encode(getGames())
 }
 
 func main() {

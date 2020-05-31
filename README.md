@@ -12,7 +12,7 @@ http://localhost:4444
 - `/games` to get list of games (json).
 
 ## Todo:
-- Refresh list of games from db everytime a GET request is made.
+- Refresh list of games from db everytime a GET request is made. **DONE**
 
 - Handle request for just 1 game.
 
