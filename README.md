@@ -14,6 +14,8 @@ http://localhost:4444
 ## Todo:
 - Refresh list of games from db everytime a GET request is made. **DONE**
 
+- One to many relationship between game and genre (genre has many games). **DONE**
+
 - Handle request for just 1 game.
 
 - Handle request to store a new game.
@@ -21,5 +23,3 @@ http://localhost:4444
 - Handle request to update a game.
 
 - Handle request to delete a game.
-
-- One to many relationship between game and genre (genre has many games).
