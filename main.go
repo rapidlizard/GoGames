@@ -13,14 +13,15 @@ import (
 
 //Game struct
 type Game struct {
-	ID    int    `json:"id"`
-	Title string `json:"title"`
+	GameID   int    `json:"game_id"`
+	GameName string `json:"game_name"`
+	Genre    Genre  `json:"Genre"`
 }
 
 //Genre struct
 type Genre struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
+	GenreID   int    `json:"genre_id"`
+	GenreName string `json:"genre_name"`
 }
 
 func getGames() []Game {
@@ -33,14 +34,15 @@ func getGames() []Game {
 	defer db.Close()
 	fmt.Println("success!!")
 
-	results, err := db.Query("SELECT * FROM games")
+	rows, err := db.Query("SELECT game_id, game_name, genre_id, genre_name FROM games LEFT JOIN genres ON genre_id = genre_fk")
 	if err != nil {
 		panic(err.Error())
 	}
-	for results.Next() {
+	for rows.Next() {
 		var game Game
 
-		results.Scan(&game.ID, &game.Title)
+		rows.Scan(&game.GameID, &game.GameName, &game.Genre.GenreID, &game.Genre.GenreName)
+
 		games = append(games, game)
 	}
 
