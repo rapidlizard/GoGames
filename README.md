@@ -1,15 +1,36 @@
 # My GoGames API
 Just a simple crud API for games.
 
-## How to use:
+## Documentation
 
-Run go build and execute the restapi file
+GET `/games` response:
+```json
+[{
+    "game_id": 1,
+    "game_name": "Skyrim",
+    "Genre": {
+        "genre_id": 3,
+        "genre_name": "adventure"
+    }
+}, {
+    "game_id": 2,
+    "game_name": "CSGO",
+    "Genre": {
+        "genre_id": 1,
+        "genre_name": "action"
+    }
+},]
+```
 
-After you can visit:
+POST /games needs to be in this format:
+```json
+{
+    "game_name": "Skyrim",
+    "Genre": {
+        "genre_id": 3,
+    }
+}
 ```
-http://localhost:4444
-```
-- `/games` to get list of games (json).
 
 ## Todo:
 - Refresh list of games from db everytime a GET request is made. **DONE**
@@ -18,7 +39,7 @@ http://localhost:4444
 
 - Handle request for just 1 game.
 
-- Handle request to store a new game.
+- Handle request to store a new game. **DONE**
 
 - Handle request to update a game.
 
